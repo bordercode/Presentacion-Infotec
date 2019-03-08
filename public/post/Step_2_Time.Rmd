@@ -1,0 +1,79 @@
+---
+title: "Time"
+author: "Jose´Luis Manzanares Rivera"
+date: 2019-01-24T21:13:14-05:00
+categories: ["R"]
+tags: ["Time", "suicidio", "log.growth"]
+---
+
+
+```{r set-global-options, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(eval = TRUE, 
+                      echo = FALSE, 
+                      cache = FALSE,
+                      include = TRUE,
+                      collapse = FALSE,
+                      dependson = NULL,
+                      engine = "R", # Chunks will always have R code, unless noted
+                      error = FALSE,                      
+                      fig.path="Figuras/",  # Set the figure options
+                      fig.align = "center", 
+                      fig.width = 7,
+                      fig.height = 5)
+```
+
+
+
+```{r silent-packages, echo = FALSE, eval = TRUE, message=FALSE, include = FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+
+```{r }
+
+growth<-readRDS("tasa_a.rds")%>%
+  mutate(fecha=replace(fecha,fecha==99,-1),
+         fecha=replace(fecha,fecha==98,-2), 
+         fecha=as.numeric(fecha))%>%
+select(-c(s,casos))
+
+
+ptl<-ggplot(growth, aes(x=fecha,  group=Suicidio, color=Suicidio)) +
+geom_line(aes(y=rate))+
+facet_wrap(~Estado, nrow=6)+
+geom_hline(yintercept = 0, size=.03)+
+ylab("Tasa de crecimiento 1998=0 (%)") +
+xlab("Año")+
+theme_bw()+
+scale_color_manual(values = c("blue","red"))+
+labs(color="Tasa de crecimiento")+
+theme(legend.position=c(.8,.02))+
+scale_x_continuous(breaks=c(0, 5, 10, 15))
+
+
+ptl
+
+
+top3bot<-readRDS("top3bot.rds")
+
+ptb3<-ggplot(top3bot, aes(x=fecha,  group=Suicidio,  linetype=Suicidio, color=Suicidio)) +
+geom_line(aes(y=rate))+
+facet_wrap(~Estado)+
+geom_hline(yintercept = 0)+
+ylab("Tasa de crecimiento 1998=0 (%)") +
+xlab("Año")+
+scale_x_continuous(breaks=c(0, 5, 10, 15))+
+theme_bw()+
+scale_color_manual(values = c("blue","red"))+
+theme(legend.position="none")
+
+ptb3
+```
+
+
+
+
+
+
+

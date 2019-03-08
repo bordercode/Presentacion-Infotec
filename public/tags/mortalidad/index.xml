@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mortalidad on Análisis Exploratorio de Datos</title>
+    <link>/tags/mortalidad/</link>
+    <description>Recent content in Mortalidad on Análisis Exploratorio de Datos</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Jan 2019 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/mortalidad/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tasa de Mortalidad</title>
+      <link>/2019-01-07-r-markdown/</link>
+      <pubDate>Sun, 27 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/2019-01-07-r-markdown/</guid>
+      <description>{&#34;x&#34;:{&#34;data&#34;:[{&#34;x&#34;:[32,31,29,28,24,26,30,27,23,22,25,16,19,20,18,21,17,15,14,12,11,9,8,13,4,7,6,10,5,3,2,1],&#34;y&#34;:[17,16,15,14,13,13,13,13,11,11,11,10,10,10,10,10,9,9,7,7,7,6,6,6,6,6,6,5,5,5,3,2],&#34;text&#34;:[&#34;reorder(Estado, Tasa): Chihuahua
+Tasa: 17
+Sexo: Hombre
+Tasa: 17&#34;,&#34;reorder(Estado, Tasa): Aguascalientes
+Tasa: 16
+Sexo: Hombre
+Tasa: 16&#34;,&#34;reorder(Estado, Tasa): Campeche
+Tasa: 15
+Sexo: Hombre
+Tasa: 15&#34;,&#34;reorder(Estado, Tasa): Sonora
+Tasa: 14
+Sexo: Hombre
+Tasa: 14&#34;,&#34;reorder(Estado, Tasa): Colima
+Tasa: 13
+Sexo: Hombre
+Tasa: 13&#34;,&#34;reorder(Estado, Tasa): Guanajuato
+Tasa: 13
+Sexo: Hombre
+Tasa: 13&#34;,&#34;reorder(Estado, Tasa): Yucatán
+Tasa: 13
+Sexo: Hombre
+Tasa: 13&#34;,&#34;reorder(Estado, Tasa): Quintana Roo
+Tasa: 13</description>
+    </item>
+    
+    <item>
+      <title>LQ Zona Metropolitana</title>
+      <link>/2019-01-04-r-rmarkdown/</link>
+      <pubDate>Wed, 23 Jan 2019 21:13:11 -0500</pubDate>
+      
+      <guid>/2019-01-04-r-rmarkdown/</guid>
+      <description>59 ZM LQLQ: 32MX [1998-2015]</description>
+    </item>
+    
+  </channel>
+</rss>

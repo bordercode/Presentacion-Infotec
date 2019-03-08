@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Analysis &amp; Visualization on Análisis Exploratorio de Datos</title>
+    <link>/post/</link>
+    <description>Recent content in Data Analysis &amp; Visualization on Análisis Exploratorio de Datos</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Jan 2019 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tasa de Mortalidad</title>
+      <link>/2019-01-07-r-markdown/</link>
+      <pubDate>Sun, 27 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/2019-01-07-r-markdown/</guid>
+      <description>{&#34;x&#34;:{&#34;data&#34;:[{&#34;x&#34;:[32,31,29,28,24,26,30,27,23,22,25,16,19,20,18,21,17,15,14,12,11,9,8,13,4,7,6,10,5,3,2,1],&#34;y&#34;:[17,16,15,14,13,13,13,13,11,11,11,10,10,10,10,10,9,9,7,7,7,6,6,6,6,6,6,5,5,5,3,2],&#34;text&#34;:[&#34;reorder(Estado, Tasa): Chihuahua
+Tasa: 17
+Sexo: Hombre
+Tasa: 17&#34;,&#34;reorder(Estado, Tasa): Aguascalientes
+Tasa: 16
+Sexo: Hombre
+Tasa: 16&#34;,&#34;reorder(Estado, Tasa): Campeche
+Tasa: 15
+Sexo: Hombre
+Tasa: 15&#34;,&#34;reorder(Estado, Tasa): Sonora
+Tasa: 14
+Sexo: Hombre
+Tasa: 14&#34;,&#34;reorder(Estado, Tasa): Colima
+Tasa: 13
+Sexo: Hombre
+Tasa: 13&#34;,&#34;reorder(Estado, Tasa): Guanajuato
+Tasa: 13
+Sexo: Hombre
+Tasa: 13&#34;,&#34;reorder(Estado, Tasa): Yucatán
+Tasa: 13
+Sexo: Hombre
+Tasa: 13&#34;,&#34;reorder(Estado, Tasa): Quintana Roo
+Tasa: 13</description>
+    </item>
+    
+    <item>
+      <title>Time</title>
+      <link>/2019-01-05-r-rmarkdown/</link>
+      <pubDate>Thu, 24 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/2019-01-05-r-rmarkdown/</guid>
+      <description>32MX:[99-´15] X600:X849Top, Bottom 3. Avg gap 98-15</description>
+    </item>
+    
+    <item>
+      <title>LQ Zona Metropolitana</title>
+      <link>/2019-01-04-r-rmarkdown/</link>
+      <pubDate>Wed, 23 Jan 2019 21:13:11 -0500</pubDate>
+      
+      <guid>/2019-01-04-r-rmarkdown/</guid>
+      <description>59 ZM LQLQ: 32MX [1998-2015]</description>
+    </item>
+    
+    <item>
+      <title>Type Mes</title>
+      <link>/2019-01-03-r-rmarkdown/</link>
+      <pubDate>Sat, 19 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/2019-01-03-r-rmarkdown/</guid>
+      <description>Mensual para los 18 años.Mayo Junio meses con un presencia importante del fenómeno.
+Qué tweetea la gente en esos meses? El general mood es más triste en Mayo que en los meses de invierno?
+En contraste con otros sitios en el Mundo como EUA donde la categoría principal es por dpaf en Aguascalientes la gente selecciona otras modalidades.
+</description>
+    </item>
+    
+    <item>
+      <title>GEO</title>
+      <link>/2018-12-20-r-rmarkdown/</link>
+      <pubDate>Sat, 12 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/2018-12-20-r-rmarkdown/</guid>
+      <description>El objetivo detectar patrones en la distribución del LQ a escala de ZM.
+</description>
+    </item>
+    
+    <item>
+      <title>Density</title>
+      <link>/2019-01-02-r-rmarkdown/</link>
+      <pubDate>Fri, 11 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/2019-01-02-r-rmarkdown/</guid>
+      <description>Caso Aguascalientes</description>
+    </item>
+    
+    <item>
+      <title>Google Trends Score</title>
+      <link>/2019-01-01-r-rmarkdown/</link>
+      <pubDate>Thu, 10 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/2019-01-01-r-rmarkdown/</guid>
+      <description>lm: Trend.2005{&#34;x&#34;:{&#34;data&#34;:[{&#34;x&#34;:[58],&#34;y&#34;:[22],&#34;text&#34;:&#34;casos: 58
+gt: 22
+Tasa: 8
+Estado: Aguascalientes
+Región: 1&#34;,&#34;type&#34;:&#34;scatter&#34;,&#34;mode&#34;:&#34;markers&#34;,&#34;marker&#34;:{&#34;autocolorscale&#34;:false,&#34;color&#34;:&#34;rgba(255,0,0,1)&#34;,&#34;opacity&#34;:0.7,&#34;size&#34;:17.8297885301935,&#34;symbol&#34;:&#34;circle&#34;,&#34;line&#34;:{&#34;width&#34;:1.88976377952756,&#34;color&#34;:&#34;rgba(255,0,0,1)&#34;}},&#34;hoveron&#34;:&#34;points&#34;,&#34;name&#34;:&#34;1&#34;,&#34;legendgroup&#34;:&#34;1&#34;,&#34;showlegend&#34;:true,&#34;xaxis&#34;:&#34;x&#34;,&#34;yaxis&#34;:&#34;y&#34;,&#34;hoverinfo&#34;:&#34;text&#34;,&#34;frame&#34;:null},{&#34;x&#34;:[254,167,141,149,101,235,39],&#34;y&#34;:[55,39,21,23,43,32,0],&#34;text&#34;:[&#34;casos: 254
+gt: 55
+Tasa: 13
+Estado: Chihuahua
+Región: 2&#34;,&#34;casos: 167
+gt: 39
+Tasa: 12
+Estado: Sonora
+Región: 2&#34;,&#34;casos: 141
+gt: 21
+Tasa: 10
+Estado: Coahuila
+Región: 2&#34;,&#34;casos: 149
+gt: 23
+Tasa: 9
+Estado: Tamaulipas
+Región: 2&#34;,&#34;casos: 101
+gt: 43
+Tasa: 6
+Estado: Baja California
+Región: 2&#34;,&#34;casos: 235
+gt: 32</description>
+    </item>
+    
+  </channel>
+</rss>

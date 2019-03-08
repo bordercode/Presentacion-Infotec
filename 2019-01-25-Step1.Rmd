@@ -1,0 +1,28 @@
+---
+title: "Tasa de Mortalidad"
+author: "José Luis Manzanares Rivera"
+date: 2019-01-24T21:13:14-05:00
+categories: ["R"]
+tags: ["Mortalidad" ]
+---
+
+```{r set-global-options, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(eval = TRUE, 
+                      echo = FALSE, 
+                      cache = FALSE,
+                      include = TRUE,
+                      collapse = FALSE,
+                      dependson = NULL,
+                      engine = "R", # Chunks will always have R code, unless noted
+                      error = FALSE)                     
+
+```
+
+
+```{r silent-packages, echo = FALSE, eval = TRUE, message=FALSE, include = FALSE}
+
+library(ggplot2)
+library(dplyr)
+```
+
+a

@@ -1,0 +1,143 @@
+---
+title: "LQ Zona Metropolitana"
+author: "José Luis Manzanares Rivera"
+date: 2019-01-23T21:13:11-05:00
+categories: ["R"]
+tags: ["Mortalidad"]
+---
+
+```{r set-global-options, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(eval = TRUE, 
+                      echo = FALSE, 
+                      cache = FALSE,
+                      include = TRUE,
+                      collapse = FALSE,
+                      dependson = NULL,
+                      engine = "R", # Chunks will always have R code, unless noted
+                      error = FALSE)                     
+
+```
+
+
+```{r silent-packages, echo = FALSE, eval = TRUE, message=FALSE, include = FALSE}
+
+library(ggplot2)
+library(dplyr)
+library(plotly)
+library(tidyr)
+library(foreign)
+```
+
+
+#### 59 ZM  LQ
+
+
+```{r, eval=FALSE,  message=FALSE,warning=FALSE}
+
+d15<-read.dbf("DEFUN15.DBF")
+
+clues<-read.csv("C:/Users/LENOVO/Desktop/DESK/I/data/CATCLUES.csv")
+
+
+s<-data.frame(c=c("X60",	"X600",	"X601",	"X602",	"X603",	"X604",	"X605",	"X606",	"X607",	"X608",	"X609",	"X61",	"X610",	"X611",	"X612",	"X613",	"X614",	"X615",	"X616",	"X617",	"X618",	"X619",	"X62",	"X620",	"X621",	"X622",	"X623",	"X624",	"X625",	"X626",	"X627",	"X628",	"X629",	"X63",	"X630",	"X631",	"X632",	"X633",	"X634",	"X635",	"X636",	"X637",	"X638",	"X639",	"X64",	"X640",	"X641",	"X642",	"X643",	"X644",	"X645",	"X646",	"X647",	"X648",	"X649",	"X65",	"X650",	"X651",	"X652",	"X653",	"X654",	"X655",	"X656",	"X657",	"X658",	"X659",	"X66",	"X660",	"X661",	"X662",	"X663",	"X664",	"X665",	"X666",	"X667",	"X668",	"X669",	"X67",	"X670",	"X671",	"X672",	"X673",	"X674",	"X675",	"X676",	"X677",	"X678",	"X679",	"X68",	"X680",	"X681",	"X682",	"X683",	"X684",	"X685",	"X686",	"X687",	"X688",	"X689",	"X69",	"X690",	"X691",	"X692",	"X693",	"X694",	"X695",	"X696",	"X697",	"X698",	"X699",	"X70",	"X700",	"X701",	"X702",	"X703",	"X704",	"X705",	"X706",	"X707",	"X708",	"X709",	"X71",	"X710",	"X711",	"X712",	"X713",	"X714",	"X715",	"X716",	"X717",	"X718",	"X719",	"X72",	"X720",	"X721",	"X722",	"X723",	"X724",	"X725",	"X726",	"X727",	"X728",	"X729",	"X73",	"X730",	"X731",	"X732",	"X733",	"X734",	"X735",	"X736",	"X737",	"X738",	"X739",	"X74",	"X740",	"X741",	"X742",	"X743",	"X744",	"X745",	"X746",	"X747",	"X748",	"X749",	"X75",	"X750",	"X751",	"X752",	"X753",	"X754",	"X755",	"X756",	"X757",	"X758",	"X759",	"X76",	"X760",	"X761",	"X762",	"X763",	"X764",	"X765",	"X766",	"X767",	"X768",	"X769",	"X77",	"X770",	"X771",	"X772",	"X773",	"X774",	"X775",	"X776",	"X777",	"X778",	"X779",	"X78",	"X780",	"X781",	"X782",	"X783",	"X784",	"X785",	"X786",	"X787",	"X788",	"X789",	"X79",	"X790",	"X791",	"X792",	"X793",	"X794",	"X795",	"X796",	"X797",	"X798",	"X799",	"X80",	"X800",	"X801",	"X802",	"X803",	"X804",	"X805",	"X806",	"X807",	"X808",	"X809",	"X81",	"X810",	"X811",	"X812",	"X813",	"X814",	"X815",	"X816",	"X817",	"X818",	"X819",	"X82",	"X820",	"X821",	"X822",	"X823",	"X824",	"X825",	"X826",	"X827",	"X828",	"X829",	"X83",	"X830",	"X831",	"X832",	"X833",	"X834",	"X835",	"X836",	"X837",	"X838",	"X839",	"X84",	"X840",	"X841",	"X842",	"X843",	"X844",	"X845",	"X846",	"X847",	"X848",	"X849"))
+
+
+casos15<-mutate(d15,s=ifelse(CAUSA_DEF%in%s$c,1,0))
+
+lqzm<-casos15
+lqzm$geoid<-paste0(lqzm$ENT_RESID, lqzm$MUN_RESID)
+
+#########
+casosgeoid<-group_by(lqzm,geoid)%>%
+  filter(s==1)%>%
+  summarize(casos=n())%>%
+  mutate(geoid=as.factor(geoid),casos=as.numeric(casos))
+glimpse(casosgeoid)
+
+
+#########
+
+# to concatenate
+
+ZM_2010<-read.dbf("ZM_2010.dbf")%>%
+  select(CVE_MUN1,CVE_SUN,NOM_SUN, POB_2010)%>%
+  rename(geoid=CVE_MUN1)
+
+
+
+lqzm<-inner_join(lqzm, ZM_2010)
+
+lq_num<-lqzm%>%
+  filter(s==1)%>%
+  group_by(CVE_SUN)%>%
+  summarise(s=n())%>%
+  mutate(n=s/sum(s)*100)
+
+lq_den<-lqzm%>%
+  filter(s==0)%>%
+  group_by(CVE_SUN)%>%
+  summarise(t=n())%>%
+  mutate(d=t/sum(t)*100)
+
+zm_names<-distinct(ZM_2010,CVE_SUN,NOM_SUN)
+
+
+lq15<-left_join(lq_num, lq_den)%>%
+  mutate(lq=n/d)%>%
+  arrange(desc(lq))%>%round(digits=2)%>%
+  left_join(zm_names, by="CVE_SUN")
+
+
+lq<-read.csv("LQ15_ZM.csv")%>%
+  select(-X)%>%
+  mutate(Nivel=as.factor(ifelse(lq>=1,"Alto","Moderado")))
+
+write.csv(lq,"LQ15_ZM.csv")    
+
+```
+
+
+```{r, warning=FALSE, message=FALSE, fig.height = 8, fig.width = 12}
+
+lq<-read.csv("LQ15_ZM.csv")%>%
+  select(-X)%>%
+  mutate(Nivel=as.factor(ifelse(lq>=1,"Alto","Moderado")))
+
+
+zmpl<-ggplot(lq, aes(x=reorder(NOM_SUN,lq), y=lq, size=lq, color=Nivel))+
+  geom_point()+
+  xlab("Zona Metropolitana")+
+  ylab("LQ")+
+  theme_bw()+
+scale_colour_hue(l=45)+
+  coord_flip()+
+  geom_hline(yintercept=1, linetype="dashed")+
+  annotate("text", y=1.25, x=12, label="LQ=1 Nivel Nacional")
+zmpl
+```
+
+
+### LQ: 32MX  [1998-2015]
+
+
+```{r, fig.height = 8, fig.width = 12 }
+library(viridisLite)
+LQ<-read.csv("LQ98_15x.csv")%>%
+  select(-X)
+ 
+lq<-ggplot(LQ,aes(x=Fecha,y=LQ,fill=LQ,group=1))+
+  geom_bar(stat="identity")+
+  facet_grid(~Estado)+
+  geom_hline(yintercept = 1)+
+  theme(axis.ticks=element_blank(),
+        axis.text.x = element_blank())+
+  xlab("Entidad / Año: 1998...2015") +
+  ylab("LQ")+
+  theme_void()+
+  scale_fill_viridis_c()
+
+
+
+lq
+```
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lq on Análisis Exploratorio de Datos</title>
+    <link>/tags/lq/</link>
+    <description>Recent content in Lq on Análisis Exploratorio de Datos</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Jan 2019 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/lq/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GEO</title>
+      <link>/2018-12-20-r-rmarkdown/</link>
+      <pubDate>Sat, 12 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/2018-12-20-r-rmarkdown/</guid>
+      <description>El objetivo detectar patrones en la distribución del LQ a escala de ZM.
+</description>
+    </item>
+    
+  </channel>
+</rss>

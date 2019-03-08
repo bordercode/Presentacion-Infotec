@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Log.growth on Análisis Exploratorio de Datos</title>
+    <link>/tags/log.growth/</link>
+    <description>Recent content in Log.growth on Análisis Exploratorio de Datos</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Jan 2019 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/log.growth/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Time</title>
+      <link>/step_2_time/</link>
+      <pubDate>Thu, 24 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/step_2_time/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

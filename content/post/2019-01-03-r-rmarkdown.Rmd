@@ -1,0 +1,91 @@
+---
+title: "Type Mes"
+author: "Jose´Luis Manzanares Rivera"
+date: 2019-01-19T21:13:14-05:00
+categories: ["R"]
+tags: ["Month", "Types", "boxplot"]
+---
+
+```{r set-global-options, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(eval = TRUE, 
+                      echo = FALSE, 
+                      cache = FALSE,
+                      include = TRUE,
+                      collapse = FALSE,
+                      dependson = NULL,
+                      engine = "R", # Chunks will always have R code, unless noted
+                      error = FALSE)                     
+
+```
+
+
+```{r silent-packages, echo = FALSE, eval = TRUE, message=FALSE, include = FALSE}
+library(viridisLite)
+library(ggrepel)
+library(ggplot2)
+library(gganimate)
+library(scales)
+library(plotly)
+library(tidyverse)
+theme_set(theme_light())
+```
+
+#### Mensual para los 18 años. 
+
+```{r , fig.height = 8, fig.width = 12}
+
+boxplot<-read.csv("boxplot.csv")
+
+ggplot(boxplot,aes(x=fct_inorder(mes),y=casos))+
+geom_boxplot()+ 
+xlab("Mes")+ylab("Suicidios")+
+theme_gray()
+```
+
+Mayo Junio meses con un presencia importante del fenómeno.
+
+Qué tweetea la gente en esos meses?  El general **mood** es más triste en Mayo que en los meses de invierno? 
+
+
+```{r, fig.height = 8, fig.width = 12}
+
+growth<-readRDS("tasa_a01.rds")%>%
+  mutate(fecha=replace(fecha,fecha==99,-1),
+         fecha=replace(fecha,fecha==98,-2), 
+         fecha=as.numeric(fecha))%>%
+  mutate(fecha=replace(fecha,fecha==-1,1999),
+        fecha=replace(fecha,fecha==-2,1998),
+        fecha=replace(fecha,fecha==0,2000),
+        fecha=replace(fecha,fecha==1,2001),
+        fecha=replace(fecha,fecha==2,2002),
+        fecha=replace(fecha,fecha==3,2003),
+        fecha=replace(fecha,fecha==4,2004),
+        fecha=replace(fecha,fecha==5,2005),
+        fecha=replace(fecha,fecha==6,2006),
+        fecha=replace(fecha,fecha==7,2007),
+        fecha=replace(fecha,fecha==8,2008),
+        fecha=replace(fecha,fecha==9,2009),
+        fecha=replace(fecha,fecha==10,2010),
+        fecha=replace(fecha,fecha==11,2011),
+        fecha=replace(fecha,fecha==12,2012),
+        fecha=replace(fecha,fecha==13,2013),
+        fecha=replace(fecha,fecha==14,2014),
+        fecha=replace(fecha,fecha==15,2015))
+
+ggplot(growth, aes(x=fecha,  group=t, colour=t)) +
+geom_line(aes(y=rate))+
+geom_point(aes(y=rate),shape=21, fill="white")+
+geom_hline(yintercept = 0, linetype="dashed", size=1,color='black')+
+geom_hline(yintercept = 100, size=1, linetype="dashed",color='black')+
+labs(colour="Tasa de crecimiento")+
+ylab("Tasa de crecimiento 1998=0 (%)") +
+xlab("Año")+
+theme_bw()+
+scale_colour_manual(values=c("tomato","gray70","gray80","royalblue3"))+
+theme(legend.position=c(.2,.2))+
+scale_x_continuous(breaks=c(1998,	1999,	2000,	2001,	2002,	2003,	2004,	2005,	2006,	2007,	2008,	2009,	2010,	2011,	2012,	2013,	2014,	2015))
+
+```
+
+En contraste con otros sitios en el Mundo como EUA donde la categoría principal es por **dpaf** en Aguascalientes la gente selecciona otras modalidades.
+

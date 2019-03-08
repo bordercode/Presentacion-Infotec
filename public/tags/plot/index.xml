@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plot on Análisis Exploratorio de Datos</title>
+    <link>/tags/plot/</link>
+    <description>Recent content in Plot on Análisis Exploratorio de Datos</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Jan 2019 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/plot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ggogle Trends Score</title>
+      <link>/2015-07-23-r-rmarkdown/</link>
+      <pubDate>Wed, 23 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/2015-07-23-r-rmarkdown/</guid>
+      <description>Evolución temporal Tasas de Mortalidad por Suicido y Google Trends Scores según entidad federativa. 2005-2015.{&#34;x&#34;:{&#34;data&#34;:[{&#34;x&#34;:[58],&#34;y&#34;:[22],&#34;text&#34;:&#34;casos: 58
+gt: 22
+Tasa: 8
+Estado: Aguascalientes
+Región: 1&#34;,&#34;type&#34;:&#34;scatter&#34;,&#34;mode&#34;:&#34;markers&#34;,&#34;marker&#34;:{&#34;autocolorscale&#34;:false,&#34;color&#34;:&#34;rgba(255,0,0,1)&#34;,&#34;opacity&#34;:0.7,&#34;size&#34;:17.8297885301935,&#34;symbol&#34;:&#34;circle&#34;,&#34;line&#34;:{&#34;width&#34;:1.88976377952756,&#34;color&#34;:&#34;rgba(255,0,0,1)&#34;}},&#34;hoveron&#34;:&#34;points&#34;,&#34;name&#34;:&#34;1&#34;,&#34;legendgroup&#34;:&#34;1&#34;,&#34;showlegend&#34;:true,&#34;xaxis&#34;:&#34;x&#34;,&#34;yaxis&#34;:&#34;y&#34;,&#34;hoverinfo&#34;:&#34;text&#34;,&#34;frame&#34;:null},{&#34;x&#34;:[254,167,141,149,101,235,39],&#34;y&#34;:[55,39,21,23,43,32,0],&#34;text&#34;:[&#34;casos: 254
+gt: 55
+Tasa: 13
+Estado: Chihuahua
+Región: 2&#34;,&#34;casos: 167
+gt: 39
+Tasa: 12
+Estado: Sonora
+Región: 2&#34;,&#34;casos: 141
+gt: 21
+Tasa: 10
+Estado: Coahuila
+Región: 2&#34;,&#34;casos: 149
+gt: 23
+Tasa: 9
+Estado: Tamaulipas
+Región: 2&#34;,&#34;casos: 101</description>
+    </item>
+    
+  </channel>
+</rss>

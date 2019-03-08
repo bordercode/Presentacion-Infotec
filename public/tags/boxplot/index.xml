@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Boxplot on Análisis Exploratorio de Datos</title>
+    <link>/tags/boxplot/</link>
+    <description>Recent content in Boxplot on Análisis Exploratorio de Datos</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Jan 2019 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/boxplot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Type Mes</title>
+      <link>/2019-01-03-r-rmarkdown/</link>
+      <pubDate>Sat, 19 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/2019-01-03-r-rmarkdown/</guid>
+      <description>Mensual para los 18 años.Mayo Junio meses con un presencia importante del fenómeno.
+Qué tweetea la gente en esos meses? El general mood es más triste en Mayo que en los meses de invierno?
+En contraste con otros sitios en el Mundo como EUA donde la categoría principal es por dpaf en Aguascalientes la gente selecciona otras modalidades.
+</description>
+    </item>
+    
+  </channel>
+</rss>

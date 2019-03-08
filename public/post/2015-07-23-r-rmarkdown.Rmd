@@ -1,0 +1,137 @@
+---
+title: "Google Trends Score"
+author: "Jose´Luis Manzanares Rivera"
+date: 2019-01-10T21:13:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "gganimate", "regression"]
+---
+
+```{r set-global-options, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(eval = TRUE, 
+                      echo = FALSE, 
+                      cache = FALSE,
+                      include = TRUE,
+                      collapse = FALSE,
+                      dependson = NULL,
+                      engine = "R", # Chunks will always have R code, unless noted
+                      error = FALSE)                     
+
+```
+
+
+```{r silent-packages, echo = FALSE, eval = TRUE, message=FALSE, include = FALSE}
+
+library(ggplot2)
+library(gganimate)
+library(scales)
+library(plotly)
+library(tidyverse)
+theme_set(theme_light())
+```
+
+
+### gtS, tmS, 32 Estados: [2005-2015].
+
+```{r}
+s05<-readRDS("sgganimate.rds")%>%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
+  select(-region)%>%
+  filter(date==2005)%>%
+  mutate(Región=ifelse(Región==1,"Aguascalientes",ifelse(Región==2,"F.Norte",ifelse(Región==3,"F.Sur","centro"))))
+
+
+p05 <- ggplot(s05, aes(casos, gt, size = Tasa,label=Estado, colour = Región)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(2, 6)) +
+  scale_colour_manual(values=c("red","limegreen","yellow","royalblue"))  +
+  labs(title = '2005', x = 'Suicidios (casos)', y = 'Google Trends Score')
+
+
+ggplotly(p05)
+```
+
+
+
+```{r,fig.width = 7, fig.height = 5}
+
+
+
+s15<-readRDS("sgganimate.rds")%>%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
+  select(-region)%>%
+  filter(date==2015)
+
+
+p15 <- ggplot(s15, aes(casos, gt, size = Tasa,label=Estado, colour = Región)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(2, 6)) +
+  scale_colour_manual(values=c("red","limegreen","yellow","royalblue")) +
+  theme(legend.position = 'none') +
+  labs(title = '2015', x = 'Suicidios (casos)', y = 'Google Trends Score') 
+
+ggplotly(p15)
+```
+
+```{r}
+s<-readRDS("sgganimate.rds")%>%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
+  select(-region)
+
+p <- ggplot(s, aes(casos, gt, size = Tasa, colour = Región)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(2, 12)) +
+  scale_colour_manual(values=c("red","limegreen","slateblue1","yellow2")) +
+  theme(legend.position = 'none') +
+  labs(title = 'Año: {frame_time}', x = 'Suicidios (casos)', y = 'Google Trends Score') +
+  transition_time(date) +
+  ease_aes('linear')
+p
+```
+
+
+El patrón econtrado  abre nuevas preguntas y posibles hipótesis relacionadas al uso de la tecnología para expresar las percepciones sociales (Tweeter, google search, etc.,). 
+
+### Co-movimiento temporal  Términos asociados. 
+
+```{r}
+library(gtrendsR)
+my_theme <- function() {
+    theme_bw() +
+    theme(panel.background = element_blank()) +
+    theme(plot.background = element_rect(fill = "seashell")) +
+    theme(panel.border = element_blank()) +                     # facet border
+    theme(strip.background = element_blank()) +                 # facet title background
+    theme(plot.margin = unit(c(.5, .5, .5, .5), "cm")) +
+    theme(panel.spacing = unit(3, "lines")) +
+    theme(panel.grid.major = element_blank()) +
+    theme(panel.grid.minor = element_blank()) +
+    theme(legend.background = element_blank()) +
+    theme(legend.key = element_blank()) +
+    theme(legend.title = element_blank())
+  }
+
+st<-readRDS("strends.rds")
+
+pgt<-plot(st) +  my_theme() +
+  geom_line(size = 0.5)+
+  xlab("Fecha")+
+  labs(title="Interés en el tiempo")
+pgt
+
+
+
+iot<-st[["interest_over_time"]]
+iot<-select(iot,-c("geo","gprop","category"))
+iot_spread<-spread(iot,keyword, hits)
+
+
+```
+
+
+Observacines:
+
+1.- Elevada correlación.
+
+2.- La tristeza precede al suicidio? Un modelo de series de tiempo (cointegración) podría aportar mayor detalle sobre este comportamiento temporal aparente.
+
+

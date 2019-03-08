@@ -1,0 +1,13 @@
+---
+title: "Gis"
+author: "JLMR"
+date: "6 de marzo de 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+![](/"ZM_lq15.jpg")
