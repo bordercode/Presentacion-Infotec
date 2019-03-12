@@ -154,3 +154,6 @@ Observacines:
 2.- La tristeza precede al suicidio? Un modelo de series de tiempo (cointegración) podría aportar mayor detalle sobre este comportamiento temporal aparente.
 
 
+
+
+

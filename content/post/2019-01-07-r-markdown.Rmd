@@ -27,7 +27,6 @@ library(plotly)
 ```
 
 
-
 ```{r,  fig.height = 8, fig.width = 12}
 
 TASA15<-readRDS("TASA15.rds")%>%
