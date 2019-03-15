@@ -52,3 +52,4 @@ googleAnalytics = "UA-123456789-1"
   homeText = "Análisis Exploratorio de datos en R markdown. Domino: Salud Pública."
   footerText = "INFOTEC. Estancia Académica. Marzo, 2019."
   hideFooter = false
+  math= true

@@ -126,7 +126,7 @@ gt: 32</description>
     </item>
     
     <item>
-      <title></title>
+      <title>Math notation &amp; Definiciones.</title>
       <link>/notaci%C3%B3n/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
@@ -148,17 +148,6 @@ SINAIS.  http://www.dgis.salud.gob.mx/contenidos/basesdedatos/estandar_gobmx.htm
  Escala geográfica CLUES. (Hospital) para todo el territorio nacional.
   Ventajas de esta base de datos:
  Cuenta con atributos detallados sobre los individuos lo que permite un alto grado de precisión para caracterizar el fenómeno (registros de mortalidad, incluido sexo, edad, causa de muerte acorde con la CIE, referencia geográfica).</description>
-    </item>
-    
-    <item>
-      <title>Math notation &amp; Definiciones</title>
-      <link>/notaci%C3%B3n/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/notaci%C3%B3n/</guid>
-      <description>Nnuewo test
-Age Adjusted Mortality rate for age group x to y.
-\[aamr= \sum_{i=x}^{y} \Bigg[ \left[ \frac{counts_i}{pop_i}X100,000 \right] X \left[ \frac{stdr_i}{ \sum_{j=x}^{y} stdr_j} \right] \Bigg]\]</description>
     </item>
     
   </channel>
