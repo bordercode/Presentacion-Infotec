@@ -126,6 +126,16 @@ gt: 32</description>
     </item>
     
     <item>
+      <title></title>
+      <link>/notaci%C3%B3n/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/notaci%C3%B3n/</guid>
+      <description>Age Adjusted Mortality rate for age group x to y.
+$$aamr= \sum_{i=x}^{y} \Bigg[ \left[ \frac{counts_i}{pop_i}X100,000 \right] X \left[ \frac{stdri}{ \sum{j=x}^{y} stdr_j} \right] \Bigg]$$</description>
+    </item>
+    
+    <item>
       <title>Micro datos de Uso público</title>
       <link>/bases-de-datos/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
