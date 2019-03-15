@@ -126,16 +126,6 @@ gt: 32</description>
     </item>
     
     <item>
-      <title>Math notation &amp; Definiciones.</title>
-      <link>/notaci%C3%B3n/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/notaci%C3%B3n/</guid>
-      <description>Age Adjusted Mortality rate for age group x to y.
-$$aamr= \sum_{i=x}^{y} \Bigg[ \left[ \frac{counts_i}{pop_i}X100,000 \right] X \left[ \frac{stdri}{ \sum{j=x}^{y} stdr_j} \right] \Bigg]$$</description>
-    </item>
-    
-    <item>
       <title>Micro datos de Uso público</title>
       <link>/bases-de-datos/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
@@ -148,6 +138,25 @@ SINAIS.  http://www.dgis.salud.gob.mx/contenidos/basesdedatos/estandar_gobmx.htm
  Escala geográfica CLUES. (Hospital) para todo el territorio nacional.
   Ventajas de esta base de datos:
  Cuenta con atributos detallados sobre los individuos lo que permite un alto grado de precisión para caracterizar el fenómeno (registros de mortalidad, incluido sexo, edad, causa de muerte acorde con la CIE, referencia geográfica).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/notaci%C3%B3n.nb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notaci%C3%B3n.nb/</guid>
+      <description>Math notation &amp;amp; Definiciones.code{white-space: pre;}pre:not([class]) {background-color: white;}if (window.hljs) {hljs.configure({languages: []});hljs.initHighlightingOnLoad();if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) {window.setTimeout(function() { hljs.initHighlighting(); }, 0);}}h1 {font-size: 34px;}h1.title {font-size: 38px;}h2 {font-size: 30px;}h3 {font-size: 24px;}h4 {font-size: 18px;}h5 {font-size: 16px;}h6 {font-size: 12px;}.</description>
+    </item>
+    
+    <item>
+      <title>Math notation &amp; Definiciones.</title>
+      <link>/notaci%C3%B3n/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notaci%C3%B3n/</guid>
+      <description>Age Adjusted Mortality rate for age group x to y.
+\[aamr= \sum_{i=x}^{y} \Bigg[ \left[ \frac{counts_i}{pop_i}X100,000 \right] X \left[ \frac{stdr_i}{ \sum_{j=x}^{y} stdr_j} \right] \Bigg]\]</description>
     </item>
     
   </channel>
