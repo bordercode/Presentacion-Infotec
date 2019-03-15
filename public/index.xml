@@ -155,8 +155,8 @@ SINAIS.  http://www.dgis.salud.gob.mx/contenidos/basesdedatos/estandar_gobmx.htm
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/notaci%C3%B3n/</guid>
-      <description>Age Adjusted Mortality rate for age group x to y.
-\[aamr= \sum_{i=x}^{y} \Bigg[ \left[ \frac{counts_i}{pop_i}X100,000 \right] X \left[ \frac{stdr_i}{ \sum_{j=x}^{y} stdr_j} \right] \Bigg]\]</description>
+      <description>Age Adjusted Mortality rate for age group x to y.\[aamr= \sum_{i=x}^{y} \Bigg[ \left[ \frac{counts_i}{pop_i}X100,000 \right] X \left[ \frac{stdr_i}{ \sum_{j=x}^{y} stdr_j} \right] \Bigg]\]
+</description>
     </item>
     
   </channel>
