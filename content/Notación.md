@@ -1,6 +1,7 @@
 ---
 date: "2014-04-09"
 title: Math notation & Definiciones.
+mathjax : true
 ---
 
 Age Adjusted Mortality rate for age group  x to y. 
