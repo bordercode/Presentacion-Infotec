@@ -157,7 +157,7 @@ Observacines:
 
 
 
-```{r,fig.width = 7, fig.height = 5}
+```{r,fig.width = 8, fig.height = 5}
 library(gtrendsR)
 library(plotly)
 
@@ -168,16 +168,18 @@ iot2<-stnd2[["interest_over_time"]]
 iot2<-select(iot2,-c("geo","gprop","category"))%>%
   mutate(keyword=as.factor(keyword))
 
+events = data.frame(date_envents = as.POSIXct(c("2014-11-02", "2015-11-27", "2016-12-11"), tz = "UTC", format = "%Y-%m-%d"))
 
 pgt<-ggplot(iot2,aes(date,hits, color=keyword))+
-  geom_line(,size=.5)+
+  geom_line(size=.1)+
   labs(title="Google trends Scores", subtitle="Keywords: Suicidio, Tristeza. Aguascalientes" ,x="Fecha", y="score")+
-  geom_smooth(method = "loess",size=2, se=F)+
+  geom_smooth(method = "loess",size=.5, se=FALSE)+
   theme_light()+
   scale_colour_manual(values=c(suicidio="red",tristeza="deepskyblue3"))+ 
   theme(legend.position=c(.9,.8))
+
   
 ggplotly(pgt)%>%
-  layout(legend = list( x = 0.7, y = .9))
+  layout(legend = list( x = 0.8, y = .9))
 ```
 
