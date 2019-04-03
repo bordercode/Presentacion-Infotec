@@ -112,7 +112,7 @@ El patrón econtrado  abre nuevas preguntas y posibles hipótesis relacionadas a
 
 ### Co-movimiento temporal  Términos asociados. 
 
-```{r}
+```{r,fig.height = 5, fig.width = 8}
 library(gtrendsR)
 my_theme <- function() {
     theme_bw() +
@@ -131,17 +131,24 @@ my_theme <- function() {
 
 st<-readRDS("strends.rds")
 
-pgt<-plot(st) +  my_theme() +
-  geom_line(size = 0.5)+
-  xlab("Fecha")+
-  labs(title="Interés en el tiempo")
-pgt
-
-
-
 iot<-st[["interest_over_time"]]
-iot<-select(iot,-c("geo","gprop","category"))
-iot_spread<-spread(iot,keyword, hits)
+
+iot<-select(iot,-c("geo","gprop","category"))%>%
+  mutate(keyword=as.factor(keyword))
+
+
+
+pgt<-ggplot(iot,aes(date,hits, color=keyword))+
+  geom_line(size=.1)+
+  labs(title="Google trends Scores", subtitle="Keywords: Suicidio, Tristeza. Aguascalientes" ,x="Fecha", y="score")+
+  theme_light()+
+  scale_colour_manual(values=c(suicidio="red",tristeza="deepskyblue3"))+ 
+  theme(legend.position=c(.9,.8))
+
+
+
+ggplotly(pgt)%>%
+  layout(legend = list( x = 0.8, y = .9))
 
 
 ```
