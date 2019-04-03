@@ -125,7 +125,7 @@ scale_colour_hue(l=45)+
 ```
 
 
-##### LQ: México 32 Overtime
+##### LQ: México 32 a lo largo del tiempo.
 
 
 ```{r,  echo=TRUE,  results='hide' }
@@ -143,6 +143,119 @@ lq<-ggplot(LQ,aes(x=Fecha,y=LQ,fill=LQ,group=1))+
   ylab("LQ")+
   theme_void()+
   scale_fill_viridis_c()
+```
+
+##### Boxplot Comportamiento Mensual en 18 años. 
+
+```{r, echo=TRUE, results='hide', message=FALSE,warning=FALSE}
+
+library(tidyverse)
+
+boxplot<-read.csv("boxplot.csv")
+
+box<-ggplot(boxplot,aes(x=fct_inorder(mes),y=casos))+
+geom_boxplot()+ 
+xlab("Mes")+ylab("Suicidios")+
+theme_gray()
+```
+
+
+
+```{r,  echo=TRUE,  results='hide'}
+
+growth<-readRDS("tasa_a01.rds")%>%
+  mutate(fecha=replace(fecha,fecha==99,-1),
+         fecha=replace(fecha,fecha==98,-2), 
+         fecha=as.numeric(fecha))%>%
+  mutate(fecha=replace(fecha,fecha==-1,1999),
+        fecha=replace(fecha,fecha==-2,1998),
+        fecha=replace(fecha,fecha==0,2000),
+        fecha=replace(fecha,fecha==1,2001),
+        fecha=replace(fecha,fecha==2,2002),
+        fecha=replace(fecha,fecha==3,2003),
+        fecha=replace(fecha,fecha==4,2004),
+        fecha=replace(fecha,fecha==5,2005),
+        fecha=replace(fecha,fecha==6,2006),
+        fecha=replace(fecha,fecha==7,2007),
+        fecha=replace(fecha,fecha==8,2008),
+        fecha=replace(fecha,fecha==9,2009),
+        fecha=replace(fecha,fecha==10,2010),
+        fecha=replace(fecha,fecha==11,2011),
+        fecha=replace(fecha,fecha==12,2012),
+        fecha=replace(fecha,fecha==13,2013),
+        fecha=replace(fecha,fecha==14,2014),
+        fecha=replace(fecha,fecha==15,2015))
+
+plt<-ggplot(growth, aes(x=fecha,  group=t, colour=t)) +
+geom_line(aes(y=rate))+
+geom_point(aes(y=rate),shape=21, fill="white")+
+geom_hline(yintercept = 0, linetype="dashed", size=1,color='black')+
+geom_hline(yintercept = 100, size=1, linetype="dashed",color='black')+
+labs(colour="Tasa de crecimiento")+
+ylab("Tasa de crecimiento 1998=0 (%)") +
+xlab("Año")+
+theme_bw()+
+scale_colour_manual(values=c("tomato","gray70","gray80","royalblue3"))+
+theme(legend.position=c(.2,.2))+
+scale_x_continuous(breaks=c(1998,	1999,	2000,	2001,	2002,	2003,	2004,	2005,	2006,	2007,	2008,	2009,	2010,	2011,	2012,	2013,	2014,	2015))
+
+```
+
+
+
+
+##### Density function Suicide Age. Aguascalientes.
+
+
+```{r,  echo=TRUE,  results='hide' , message=FALSE, warning=FALSE}
+
+sdensity<-readRDS("density.rds")%>%
+  mutate(s=as.factor(s))%>%
+  filter(ENT_RESID!=33& ENT_RESID!=34& ENT_RESID!=35& ENT_RESID!=99)%>%
+  group_by(ENT_RESID)
+
+cat_e<-read.csv("cat_entidad.csv")%>%
+select(-X)%>%
+rename(ent_res=X.U.FEFF.EDO)%>%
+mutate(ent_res=sprintf("%02d",ent_res))%>%
+mutate(ENT_RESID=as.factor(ent_res))%>%
+select(-ent_res)
+
+sdensity<-left_join(sdensity,cat_e)
+
+
+mxplt<-ggplot(sdensity, aes(x=age,linetype=s, color=s))+
+geom_line(stat="density")+
+labs(linetype="Causa")+
+xlab("Edad de la persona (Años)")+
+ylab("Densidad f(y)")+
+facet_wrap(~DESCRIP, nrow=6)+
+scale_linetype(labels=c("Otras causas","Suicidio"))+
+  theme_classic()+
+scale_color_manual(values = c("mediumturquoise","magenta1"))+
+  theme(legend.position="none")
+```
+
+
+```{r,  echo=TRUE,  results='hide' }
+
+ags<-filter(sdensity,ENT_RESID=="01")%>%
+  mutate(s=as.factor(s))
+
+
+aplt<-ggplot(ags, aes(x=age,linetype=s, color=s))+
+geom_line(stat="density")+
+labs(linetype="Causa")+
+xlab("Edad de la persona (Años)")+
+ylab("Densidad f(y)")+
+annotate("segment", x=29, xend=13, y=0.011, yend=0.011,  size=.3, arrow=arrow(length=unit(.2,"cm")))+
+annotate("text", x=23, y=0.013, label="Alta incidencia")+
+annotate("text", x=21, y=0.009, label="13<Edad<29")+
+annotate("rect", xmin=13, xmax=29, ymin=0, ymax=0.03, alpha=.1,fill="black")+
+scale_linetype(labels=c("Otras causas","Suicidio"))+
+theme_classic()+
+scale_color_manual(values = c("mediumturquoise","magenta1"))+
+theme(legend.position="none")
 ```
 
 

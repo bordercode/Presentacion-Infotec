@@ -80,8 +80,8 @@ scale_colour_hue(l=45)+
   geom_hline(yintercept=1, linetype=&quot;dashed&quot;)+
   annotate(&quot;text&quot;, y=1.25, x=12, label=&quot;LQ=1 Nivel Nacional&quot;)</code></pre>
 </div>
-<div id="lq-mexico-32-overtime" class="section level5">
-<h5>LQ: México 32 Overtime</h5>
+<div id="lq-mexico-32-a-lo-largo-del-tiempo." class="section level5">
+<h5>LQ: México 32 a lo largo del tiempo.</h5>
 <pre class="r"><code>library(viridisLite)
 LQ&lt;-read.csv(&quot;LQ98_15x.csv&quot;)%&gt;%
   select(-X)
@@ -96,6 +96,97 @@ lq&lt;-ggplot(LQ,aes(x=Fecha,y=LQ,fill=LQ,group=1))+
   ylab(&quot;LQ&quot;)+
   theme_void()+
   scale_fill_viridis_c()</code></pre>
+</div>
+<div id="boxplot-comportamiento-mensual-en-18-anos." class="section level5">
+<h5>Boxplot Comportamiento Mensual en 18 años.</h5>
+<pre class="r"><code>library(tidyverse)
+
+boxplot&lt;-read.csv(&quot;boxplot.csv&quot;)
+
+box&lt;-ggplot(boxplot,aes(x=fct_inorder(mes),y=casos))+
+geom_boxplot()+ 
+xlab(&quot;Mes&quot;)+ylab(&quot;Suicidios&quot;)+
+theme_gray()</code></pre>
+<pre class="r"><code>growth&lt;-readRDS(&quot;tasa_a01.rds&quot;)%&gt;%
+  mutate(fecha=replace(fecha,fecha==99,-1),
+         fecha=replace(fecha,fecha==98,-2), 
+         fecha=as.numeric(fecha))%&gt;%
+  mutate(fecha=replace(fecha,fecha==-1,1999),
+        fecha=replace(fecha,fecha==-2,1998),
+        fecha=replace(fecha,fecha==0,2000),
+        fecha=replace(fecha,fecha==1,2001),
+        fecha=replace(fecha,fecha==2,2002),
+        fecha=replace(fecha,fecha==3,2003),
+        fecha=replace(fecha,fecha==4,2004),
+        fecha=replace(fecha,fecha==5,2005),
+        fecha=replace(fecha,fecha==6,2006),
+        fecha=replace(fecha,fecha==7,2007),
+        fecha=replace(fecha,fecha==8,2008),
+        fecha=replace(fecha,fecha==9,2009),
+        fecha=replace(fecha,fecha==10,2010),
+        fecha=replace(fecha,fecha==11,2011),
+        fecha=replace(fecha,fecha==12,2012),
+        fecha=replace(fecha,fecha==13,2013),
+        fecha=replace(fecha,fecha==14,2014),
+        fecha=replace(fecha,fecha==15,2015))
+
+plt&lt;-ggplot(growth, aes(x=fecha,  group=t, colour=t)) +
+geom_line(aes(y=rate))+
+geom_point(aes(y=rate),shape=21, fill=&quot;white&quot;)+
+geom_hline(yintercept = 0, linetype=&quot;dashed&quot;, size=1,color=&#39;black&#39;)+
+geom_hline(yintercept = 100, size=1, linetype=&quot;dashed&quot;,color=&#39;black&#39;)+
+labs(colour=&quot;Tasa de crecimiento&quot;)+
+ylab(&quot;Tasa de crecimiento 1998=0 (%)&quot;) +
+xlab(&quot;Año&quot;)+
+theme_bw()+
+scale_colour_manual(values=c(&quot;tomato&quot;,&quot;gray70&quot;,&quot;gray80&quot;,&quot;royalblue3&quot;))+
+theme(legend.position=c(.2,.2))+
+scale_x_continuous(breaks=c(1998,   1999,   2000,   2001,   2002,   2003,   2004,   2005,   2006,   2007,   2008,   2009,   2010,   2011,   2012,   2013,   2014,   2015))</code></pre>
+</div>
+<div id="density-function-suicide-age.-aguascalientes." class="section level5">
+<h5>Density function Suicide Age. Aguascalientes.</h5>
+<pre class="r"><code>sdensity&lt;-readRDS(&quot;density.rds&quot;)%&gt;%
+  mutate(s=as.factor(s))%&gt;%
+  filter(ENT_RESID!=33&amp; ENT_RESID!=34&amp; ENT_RESID!=35&amp; ENT_RESID!=99)%&gt;%
+  group_by(ENT_RESID)
+
+cat_e&lt;-read.csv(&quot;cat_entidad.csv&quot;)%&gt;%
+select(-X)%&gt;%
+rename(ent_res=X.U.FEFF.EDO)%&gt;%
+mutate(ent_res=sprintf(&quot;%02d&quot;,ent_res))%&gt;%
+mutate(ENT_RESID=as.factor(ent_res))%&gt;%
+select(-ent_res)
+
+sdensity&lt;-left_join(sdensity,cat_e)
+
+
+mxplt&lt;-ggplot(sdensity, aes(x=age,linetype=s, color=s))+
+geom_line(stat=&quot;density&quot;)+
+labs(linetype=&quot;Causa&quot;)+
+xlab(&quot;Edad de la persona (Años)&quot;)+
+ylab(&quot;Densidad f(y)&quot;)+
+facet_wrap(~DESCRIP, nrow=6)+
+scale_linetype(labels=c(&quot;Otras causas&quot;,&quot;Suicidio&quot;))+
+  theme_classic()+
+scale_color_manual(values = c(&quot;mediumturquoise&quot;,&quot;magenta1&quot;))+
+  theme(legend.position=&quot;none&quot;)</code></pre>
+<pre class="r"><code>ags&lt;-filter(sdensity,ENT_RESID==&quot;01&quot;)%&gt;%
+  mutate(s=as.factor(s))
+
+
+aplt&lt;-ggplot(ags, aes(x=age,linetype=s, color=s))+
+geom_line(stat=&quot;density&quot;)+
+labs(linetype=&quot;Causa&quot;)+
+xlab(&quot;Edad de la persona (Años)&quot;)+
+ylab(&quot;Densidad f(y)&quot;)+
+annotate(&quot;segment&quot;, x=29, xend=13, y=0.011, yend=0.011,  size=.3, arrow=arrow(length=unit(.2,&quot;cm&quot;)))+
+annotate(&quot;text&quot;, x=23, y=0.013, label=&quot;Alta incidencia&quot;)+
+annotate(&quot;text&quot;, x=21, y=0.009, label=&quot;13&lt;Edad&lt;29&quot;)+
+annotate(&quot;rect&quot;, xmin=13, xmax=29, ymin=0, ymax=0.03, alpha=.1,fill=&quot;black&quot;)+
+scale_linetype(labels=c(&quot;Otras causas&quot;,&quot;Suicidio&quot;))+
+theme_classic()+
+scale_color_manual(values = c(&quot;mediumturquoise&quot;,&quot;magenta1&quot;))+
+theme(legend.position=&quot;none&quot;)</code></pre>
 </div>
 <div id="analisis-replicable-transparente-colaboracion-github-iteracion-del-proceso-productividad." class="section level4">
 <h4>Análisis replicable, transparente + Colaboración (GitHub) + Iteración del proceso = Productividad.</h4>
