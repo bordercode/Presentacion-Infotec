@@ -48,7 +48,7 @@ Tasa: 13</description>
       <pubDate>Thu, 24 Jan 2019 21:13:14 -0500</pubDate>
       
       <guid>/2019-01-05-r-rmarkdown/</guid>
-      <description>32MX:[99-´15] X600:X849Top, Bottom 3. Avg gap 98-15</description>
+      <description>32MX:[98-´15] X600:X849Top, Bottom 3. Avg gap 98-15</description>
     </item>
     
     <item>
@@ -138,6 +138,15 @@ SINAIS.  http://www.dgis.salud.gob.mx/contenidos/basesdedatos/estandar_gobmx.htm
  Escala geográfica CLUES. (Hospital) para todo el territorio nacional.
   Ventajas de esta base de datos:
  Cuenta con atributos detallados sobre los individuos lo que permite un alto grado de precisión para caracterizar el fenómeno (registros de mortalidad, incluido sexo, edad, causa de muerte acorde con la CIE, referencia geográfica).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/code/</guid>
+      <description>Tasa de Mortalidad Ajustada por estructura de edad.TASA15&amp;lt;-readRDS(&amp;quot;TASA15.rds&amp;quot;)%&amp;gt;%mutate(Estado=as.factor(Estado))%&amp;gt;%select(-Alta)%&amp;gt;%arrange(desc(Tasa))%&amp;gt;%mutate(Tasa=as.numeric(Tasa),Sexo=as.factor(Sexo))%&amp;gt;%mutate(Sexo=ifelse(Sexo==1,&amp;quot;Hombre&amp;quot;,&amp;quot;Mujer&amp;quot;))## A Color plotta&amp;lt;-ggplot(TASA15, aes(x=reorder(Estado,Tasa), y=Tasa, colour=Sexo, size=Tasa))+geom_point()+theme_bw()+xlab(&amp;quot;Estado&amp;quot;)+ theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1))+ylab(&amp;quot;Tasa de Mortalidad (100 000 hab.)&amp;quot;)+geom_vline(xintercept=16,linetype=&amp;quot;dashed&amp;quot;, size=.5)+annotate(&amp;quot;text&amp;quot;, x=&amp;quot;Durango&amp;quot;, y=15, label=&amp;quot;Elevada inicdencia&amp;quot;)+scale_colour_manual(values = c(&amp;quot;deepskyblue3&amp;quot;, &amp;quot;deeppink3&amp;quot;), labels = c(&amp;quot;Hombre&amp;quot;, &amp;quot;Mujer&amp;quot;))Evolución temporal.growth&amp;lt;-readRDS(&amp;quot;tasa_a.rds&amp;quot;)%&amp;gt;%mutate(fecha=replace(fecha,fecha==99,-1),fecha=replace(fecha,fecha==98,-2), fecha=as.numeric(fecha))%&amp;gt;%select(-c(s,casos))ptl&amp;lt;-ggplot(growth, aes(x=fecha, group=Suicidio, color=Suicidio)) +geom_line(aes(y=rate))+facet_wrap(~Estado, nrow=6)+geom_hline(yintercept = 0, size=.</description>
     </item>
     
     <item>

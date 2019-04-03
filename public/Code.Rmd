@@ -1,0 +1,150 @@
+---
+title: ""
+author: "JLMR"
+date: "3 de abril de 2019"
+output: html_document
+---
+
+```{r set-global-options, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(eval = TRUE, 
+                      echo = FALSE, 
+                      cache = FALSE,
+                      include = TRUE,
+                      collapse = FALSE,
+                      dependson = NULL,
+                      engine = "R", # Chunks will always have R code, unless noted
+                      error = FALSE)                     
+
+```
+
+
+
+##### Tasa de Mortalidad Ajustada por estructura de edad.
+
+```{r silent-packages, echo = FALSE, eval = TRUE, message=FALSE, include = FALSE}
+
+library(ggplot2)
+library(dplyr)
+library(plotly)
+```
+
+
+
+
+```{r, echo=TRUE, , results='hide'}
+
+TASA15<-readRDS("TASA15.rds")%>%
+mutate(Estado=as.factor(Estado))%>%
+  select(-Alta)%>%
+  arrange(desc(Tasa))%>%
+  mutate(Tasa=as.numeric(Tasa),Sexo=as.factor(Sexo))%>%
+  mutate(Sexo=ifelse(Sexo==1,"Hombre","Mujer"))
+
+## A Color plot
+ta<-ggplot(TASA15, aes(x=reorder(Estado,Tasa), y=Tasa, colour=Sexo,  size=Tasa))+
+geom_point()+
+theme_bw()+
+xlab("Estado")+ 
+theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1))+
+ylab("Tasa de Mortalidad (100 000 hab.)")+
+geom_vline(xintercept=16,linetype="dashed", size=.5)+
+annotate("text", x="Durango", y=15, label="Elevada inicdencia")+
+scale_colour_manual(values = c("deepskyblue3", "deeppink3"), labels = c("Hombre", "Mujer"))
+
+```
+
+
+
+##### Evolución temporal. 
+
+
+
+```{r,  echo=TRUE,  results='hide' }
+
+growth<-readRDS("tasa_a.rds")%>%
+  mutate(fecha=replace(fecha,fecha==99,-1),
+         fecha=replace(fecha,fecha==98,-2), 
+         fecha=as.numeric(fecha))%>%
+select(-c(s,casos))
+
+
+ptl<-ggplot(growth, aes(x=fecha,  group=Suicidio, color=Suicidio)) +
+geom_line(aes(y=rate))+
+facet_wrap(~Estado, nrow=6)+
+geom_hline(yintercept = 0, size=.03)+
+ylab("Tasa de crecimiento 1998=0 (%)") +
+xlab("Año")+
+theme_bw()+
+scale_color_manual(values = c("dodgerblue3","red"))+
+labs(color="Tasa de crecimiento")+
+theme(legend.position=c(.8,.02))+
+scale_x_continuous(breaks=c(0, 5, 10, 15))
+
+
+
+```
+
+##### Top, Bottom 3.  Avg gap 98-15
+
+```{r, echo=TRUE,  results='hide'}
+
+top3bot<-readRDS("top3bot.rds")
+
+ptb3<-ggplot(top3bot, aes(x=fecha,  group=Suicidio,  linetype=Suicidio, color=Suicidio)) +
+geom_line(aes(y=rate))+
+facet_wrap(~Estado)+
+geom_hline(yintercept = 0)+
+ylab("Tasa de crecimiento 1998=0 (%)") +
+xlab("Año")+
+scale_x_continuous(breaks=c(0, 5, 10, 15))+
+theme_bw()+
+scale_color_manual(values = c("dodgerblue3","red"))+
+theme(legend.position="none")
+
+
+```
+
+##### LQ 59 Zonas Metropolitanas 2015.
+
+```{r,  echo=TRUE,  results='hide'}
+
+lq<-read.csv("LQ15_ZM.csv")%>%
+  select(-X)%>%
+  mutate(Nivel=as.factor(ifelse(lq>=1,"Alto","Moderado")))
+
+
+zmpl<-ggplot(lq, aes(x=reorder(NOM_SUN,lq), y=lq, size=lq, color=Nivel))+
+  geom_point()+
+  xlab("Zona Metropolitana")+
+  ylab("LQ")+
+  theme_bw()+
+scale_colour_hue(l=45)+
+  coord_flip()+
+  geom_hline(yintercept=1, linetype="dashed")+
+  annotate("text", y=1.25, x=12, label="LQ=1 Nivel Nacional")
+```
+
+
+##### LQ: México 32 Overtime
+
+
+```{r,  echo=TRUE,  results='hide' }
+library(viridisLite)
+LQ<-read.csv("LQ98_15x.csv")%>%
+  select(-X)
+ 
+lq<-ggplot(LQ,aes(x=Fecha,y=LQ,fill=LQ,group=1))+
+  geom_bar(stat="identity")+
+  facet_grid(~Estado)+
+  geom_hline(yintercept = 1)+
+  theme(axis.ticks=element_blank(),
+        axis.text.x = element_blank())+
+  xlab("Entidad / Año: 1998...2015") +
+  ylab("LQ")+
+  theme_void()+
+  scale_fill_viridis_c()
+```
+
+
+
+#### Análisis replicable, transparente + Colaboración (GitHub) + Iteración del proceso = Productividad.

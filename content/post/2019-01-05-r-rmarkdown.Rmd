@@ -25,7 +25,7 @@ library(ggplot2)
 library(dplyr)
 ```
 
-#### 32MX:[99-´15] X600:X849
+#### 32MX:[98-´15] X600:X849
 ```{r,  fig.height = 8, fig.width = 12 }
 
 growth<-readRDS("tasa_a.rds")%>%
