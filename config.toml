@@ -20,8 +20,8 @@ googleAnalytics = "UA-123456789-1"
 # The value of pre is the icon name
 [menu]
   [[menu.nav]]
-    name = "INFOTEC. Estancia Académica Marzo-Abril 2019"
-    pre = "INFOTEC. Estancia Académica Marzo-Abril 2019"
+    name = "INFOTEC-COLEF"
+    pre = "INFOTEC-COLEF"
     url = "/"
     weight = 1
   [[menu.nav]]
@@ -55,6 +55,6 @@ googleAnalytics = "UA-123456789-1"
   containerMaxWidth = "700px"
   dateFormat = "Jan 2, 2006"
   homeText = "Análisis Exploratorio de datos en R markdown. Domino: Salud Pública."
-  footerText = "José Luis Manzanares Rivera. Marzo, 2019."
+  footerText = "José Luis Manzanares Rivera. Estancia Académica. Marzo, 2019."
   hideFooter = false
   math= true

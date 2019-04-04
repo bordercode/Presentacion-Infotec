@@ -260,4 +260,167 @@ theme(legend.position="none")
 
 
 
+
+#### Google Trends.
+
+```{r, echo=FALSE, results='hide' , fig.height = 8, fig.width = 12, message=FALSE, warning=FALSE}
+
+library(viridisLite)
+library(ggrepel)
+library(ggplot2)
+library(gganimate)
+library(scales)
+library(plotly)
+library(tidyverse)
+
+s15<-readRDS("sgganimate.rds")%>%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
+  select(-region)%>%
+  filter(date==2015)%>%
+  mutate(Región=ifelse(Región==1,"Aguascalientes",ifelse(Región==2,"F.Norte",ifelse(Región==3,"F.Sur","centro"))))
+
+
+plot<-ggplot(s15, aes(gt, Tasa, color=Región))+
+  geom_point()+
+  stat_smooth(method=lm, se=FALSE)+
+ylab("Tasa de Mortalidad   (100 000 hab.)")+
+xlab("Google Trends Score (2004-2018)") +
+geom_label_repel(aes(label = Estado),box.padding= 0.35,point.padding = .5,segment.color = 'grey50')+
+  theme_bw()+
+scale_colour_manual(values=c("red","limegreen","brown","royalblue"))
+
+```
+
+
+#### 2005
+
+```{r}
+s05<-readRDS("sgganimate.rds")%>%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
+  select(-region)%>%
+  filter(date==2005)
+
+p05 <- ggplot(s05, aes(casos, gt, size = Tasa,label=Estado, colour = Región)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(2, 6)) +
+  scale_colour_manual(values=c("red","limegreen","yellow","royalblue"))  +
+  theme(legend.position = 'none')+
+  labs(x = 'Suicidios (casos)', y = 'Google Trends Score')
+
+
+```
+
+#### 2015
+
+```{r,fig.width = 7, fig.height = 5}
+
+s15<-readRDS("sgganimate.rds")%>%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
+  select(-region)%>%
+  filter(date==2015)
+
+p15 <- ggplot(s15, aes(casos, gt, size = Tasa,label=Estado, colour = Región)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(2, 6)) +
+  scale_colour_manual(values=c("red","limegreen","royalblue","yellow2")) +
+  theme(legend.position = 'none') +
+  labs(x = 'Suicidios (casos)', y = 'Google Trends Score') 
+
+
+```
+
+
+
+##### Animación
+
+```{r}
+s<-readRDS("sgganimate.rds")%>%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
+  select(-region)
+
+p <- ggplot(s, aes(casos, gt, size = Tasa, colour = Región)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(2, 12)) +
+  scale_colour_manual(values=c("red","limegreen","royalblue","yellow2")) +
+  theme(legend.position = 'none') +
+  labs(title = 'Año: {frame_time}', x = 'Suicidios (casos)', y = 'Google Trends Score') +
+  transition_time(date) +
+  ease_aes('linear')
+p
+```
+
+
+### Co-movimiento temporal  Términos asociados. 
+
+```{r, echo=FALSE, results='hide' ,  message=FALSE, warning=FALSE, fig.height = 5, fig.width = 8}
+library(gtrendsR)
+my_theme <- function() {
+    theme_bw() +
+    theme(panel.background = element_blank()) +
+    theme(plot.background = element_rect(fill = "seashell")) +
+    theme(panel.border = element_blank()) +                     # facet border
+    theme(strip.background = element_blank()) +                 # facet title background
+    theme(plot.margin = unit(c(.5, .5, .5, .5), "cm")) +
+    theme(panel.spacing = unit(3, "lines")) +
+    theme(panel.grid.major = element_blank()) +
+    theme(panel.grid.minor = element_blank()) +
+    theme(legend.background = element_blank()) +
+    theme(legend.key = element_blank()) +
+    theme(legend.title = element_blank())
+  }
+
+st<-readRDS("strends.rds")
+
+iot<-st[["interest_over_time"]]
+
+iot<-select(iot,-c("geo","gprop","category"))%>%
+  mutate(keyword=as.factor(keyword))
+
+
+
+pgt<-ggplot(iot,aes(date,hits, color=keyword))+
+  geom_line(size=.1)+
+  labs(title="Google trends Scores", subtitle="Keywords: Suicidio, Tristeza. Aguascalientes" ,x="Fecha", y="score")+
+  theme_light()+
+  scale_colour_manual(values=c(suicidio="red",tristeza="deepskyblue3"))+ 
+  theme(legend.position=c(.9,.8))
+
+
+
+ggplotly(pgt)%>%
+  layout(legend = list( x = 0.8, y = .9))
+
+```
+
+
+#### Serie 5 años  smooth filter.
+
+```{r, echo=FALSE, results='hide' ,  message=FALSE, warning=FALSE, fig.width = 8, fig.height = 5}
+library(gtrendsR)
+library(plotly)
+
+stnd2<- gtrends(c( "suicidio", "tristeza"), geo = "MX-AGU", time="today+5-y")
+
+
+iot2<-stnd2[["interest_over_time"]]
+iot2<-select(iot2,-c("geo","gprop","category"))%>%
+  mutate(keyword=as.factor(keyword))
+
+events = data.frame(date_envents = as.POSIXct(c("2014-11-02", "2015-11-27", "2016-12-11"), tz = "UTC", format = "%Y-%m-%d"))
+
+pgt<-ggplot(iot2,aes(date,hits, color=keyword))+
+  geom_line(size=.1)+
+  labs(title="Google trends Scores", subtitle="Keywords: Suicidio, Tristeza. Aguascalientes" ,x="Fecha", y="score")+
+  geom_smooth(method = "loess",size=.5, se=FALSE)+
+  theme_light()+
+  scale_colour_manual(values=c(suicidio="red",tristeza="deepskyblue3"))+ 
+  theme(legend.position=c(.9,.8))
+
+  
+ggplotly(pgt)%>%
+  layout(legend = list( x = 0.8, y = .9))
+```
+
+
+
 #### Análisis replicable, transparente + Colaboración (GitHub) + Iteración del proceso = Productividad.
