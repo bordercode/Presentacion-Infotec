@@ -23,9 +23,13 @@ knitr::opts_chunk$set(eval = TRUE,
 
 ```{r silent-packages, echo = FALSE, eval = TRUE, message=FALSE, include = FALSE}
 
+library(viridisLite)
+library(ggrepel)
 library(ggplot2)
-library(dplyr)
+library(gganimate)
+library(scales)
 library(plotly)
+library(tidyverse)
 ```
 
 
@@ -263,15 +267,7 @@ theme(legend.position="none")
 
 #### Google Trends.
 
-```{r, echo=FALSE, results='hide' , fig.height = 8, fig.width = 12, message=FALSE, warning=FALSE}
-
-library(viridisLite)
-library(ggrepel)
-library(ggplot2)
-library(gganimate)
-library(scales)
-library(plotly)
-library(tidyverse)
+```{r, echo=TRUE, results='hide', message=FALSE, warning=FALSE}
 
 s15<-readRDS("sgganimate.rds")%>%
   mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
@@ -294,7 +290,8 @@ scale_colour_manual(values=c("red","limegreen","brown","royalblue"))
 
 #### 2005
 
-```{r}
+```{r, echo=TRUE, results='hide'}
+
 s05<-readRDS("sgganimate.rds")%>%
   mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
   select(-region)%>%
@@ -312,7 +309,7 @@ p05 <- ggplot(s05, aes(casos, gt, size = Tasa,label=Estado, colour = Región)) +
 
 #### 2015
 
-```{r,fig.width = 7, fig.height = 5}
+```{r,echo=TRUE,results='hide'}
 
 s15<-readRDS("sgganimate.rds")%>%
   mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
@@ -333,7 +330,8 @@ p15 <- ggplot(s15, aes(casos, gt, size = Tasa,label=Estado, colour = Región)) +
 
 ##### Animación
 
-```{r}
+```{r, echo=TRUE, results='hide'}
+
 s<-readRDS("sgganimate.rds")%>%
   mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
   select(-region)
@@ -352,7 +350,7 @@ p
 
 ### Co-movimiento temporal  Términos asociados. 
 
-```{r, echo=FALSE, results='hide' ,  message=FALSE, warning=FALSE, fig.height = 5, fig.width = 8}
+```{r, echo=TRUE, results='hide' ,  message=FALSE, warning=FALSE}
 library(gtrendsR)
 my_theme <- function() {
     theme_bw() +
@@ -382,8 +380,7 @@ pgt<-ggplot(iot,aes(date,hits, color=keyword))+
   geom_line(size=.1)+
   labs(title="Google trends Scores", subtitle="Keywords: Suicidio, Tristeza. Aguascalientes" ,x="Fecha", y="score")+
   theme_light()+
-  scale_colour_manual(values=c(suicidio="red",tristeza="deepskyblue3"))+ 
-  theme(legend.position=c(.9,.8))
+  scale_colour_manual(values=c(suicidio="red",tristeza="deepskyblue3"))+   theme(legend.position=c(.9,.8))
 
 
 
@@ -395,7 +392,8 @@ ggplotly(pgt)%>%
 
 #### Serie 5 años  smooth filter.
 
-```{r, echo=FALSE, results='hide' ,  message=FALSE, warning=FALSE, fig.width = 8, fig.height = 5}
+```{r, echo=TRUE, results='hide' ,  message=FALSE, warning=FALSE}
+
 library(gtrendsR)
 library(plotly)
 
@@ -422,5 +420,14 @@ ggplotly(pgt)%>%
 ```
 
 
+****
 
-#### Análisis replicable, transparente + Colaboración (GitHub) + Iteración del proceso = Productividad.
+
+
+**GitHub** Page: https://github.com/JoseLuisManzanaresRivera
+
+**Profile** Page:  https://joseluismanzanaresrivera.github.io/Profile/
+
+**Blog**: https://dborder.netlify.com/
+
+**Tweeter** @JLManzanareRivera

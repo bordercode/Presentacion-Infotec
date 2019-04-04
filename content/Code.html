@@ -190,23 +190,132 @@ theme(legend.position=&quot;none&quot;)</code></pre>
 </div>
 <div id="google-trends." class="section level4">
 <h4>Google Trends.</h4>
+<pre class="r"><code>s15&lt;-readRDS(&quot;sgganimate.rds&quot;)%&gt;%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%&gt;%
+  select(-region)%&gt;%
+  filter(date==2015)%&gt;%
+  mutate(Región=ifelse(Región==1,&quot;Aguascalientes&quot;,ifelse(Región==2,&quot;F.Norte&quot;,ifelse(Región==3,&quot;F.Sur&quot;,&quot;centro&quot;))))
+
+
+plot&lt;-ggplot(s15, aes(gt, Tasa, color=Región))+
+  geom_point()+
+  stat_smooth(method=lm, se=FALSE)+
+ylab(&quot;Tasa de Mortalidad   (100 000 hab.)&quot;)+
+xlab(&quot;Google Trends Score (2004-2018)&quot;) +
+geom_label_repel(aes(label = Estado),box.padding= 0.35,point.padding = .5,segment.color = &#39;grey50&#39;)+
+  theme_bw()+
+scale_colour_manual(values=c(&quot;red&quot;,&quot;limegreen&quot;,&quot;brown&quot;,&quot;royalblue&quot;))</code></pre>
 </div>
 <div id="section" class="section level4">
 <h4>2005</h4>
+<pre class="r"><code>s05&lt;-readRDS(&quot;sgganimate.rds&quot;)%&gt;%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%&gt;%
+  select(-region)%&gt;%
+  filter(date==2005)
+
+p05 &lt;- ggplot(s05, aes(casos, gt, size = Tasa,label=Estado, colour = Región)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(2, 6)) +
+  scale_colour_manual(values=c(&quot;red&quot;,&quot;limegreen&quot;,&quot;yellow&quot;,&quot;royalblue&quot;))  +
+  theme(legend.position = &#39;none&#39;)+
+  labs(x = &#39;Suicidios (casos)&#39;, y = &#39;Google Trends Score&#39;)</code></pre>
 </div>
 <div id="section-1" class="section level4">
 <h4>2015</h4>
+<pre class="r"><code>s15&lt;-readRDS(&quot;sgganimate.rds&quot;)%&gt;%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%&gt;%
+  select(-region)%&gt;%
+  filter(date==2015)
+
+p15 &lt;- ggplot(s15, aes(casos, gt, size = Tasa,label=Estado, colour = Región)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(2, 6)) +
+  scale_colour_manual(values=c(&quot;red&quot;,&quot;limegreen&quot;,&quot;royalblue&quot;,&quot;yellow2&quot;)) +
+  theme(legend.position = &#39;none&#39;) +
+  labs(x = &#39;Suicidios (casos)&#39;, y = &#39;Google Trends Score&#39;) </code></pre>
 <div id="animacion" class="section level5">
 <h5>Animación</h5>
-<p><img src="/Code_files/figure-html/unnamed-chunk-13-1.gif" /><!-- --></p>
+<pre class="r"><code>s&lt;-readRDS(&quot;sgganimate.rds&quot;)%&gt;%
+  mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%&gt;%
+  select(-region)
+
+p &lt;- ggplot(s, aes(casos, gt, size = Tasa, colour = Región)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(2, 12)) +
+  scale_colour_manual(values=c(&quot;red&quot;,&quot;limegreen&quot;,&quot;royalblue&quot;,&quot;yellow2&quot;)) +
+  theme(legend.position = &#39;none&#39;) +
+  labs(title = &#39;Año: {frame_time}&#39;, x = &#39;Suicidios (casos)&#39;, y = &#39;Google Trends Score&#39;) +
+  transition_time(date) +
+  ease_aes(&#39;linear&#39;)
+p</code></pre>
 </div>
 </div>
 <div id="co-movimiento-temporal-terminos-asociados." class="section level3">
 <h3>Co-movimiento temporal Términos asociados.</h3>
+<pre class="r"><code>library(gtrendsR)
+my_theme &lt;- function() {
+    theme_bw() +
+    theme(panel.background = element_blank()) +
+    theme(plot.background = element_rect(fill = &quot;seashell&quot;)) +
+    theme(panel.border = element_blank()) +                     # facet border
+    theme(strip.background = element_blank()) +                 # facet title background
+    theme(plot.margin = unit(c(.5, .5, .5, .5), &quot;cm&quot;)) +
+    theme(panel.spacing = unit(3, &quot;lines&quot;)) +
+    theme(panel.grid.major = element_blank()) +
+    theme(panel.grid.minor = element_blank()) +
+    theme(legend.background = element_blank()) +
+    theme(legend.key = element_blank()) +
+    theme(legend.title = element_blank())
+  }
+
+st&lt;-readRDS(&quot;strends.rds&quot;)
+
+iot&lt;-st[[&quot;interest_over_time&quot;]]
+
+iot&lt;-select(iot,-c(&quot;geo&quot;,&quot;gprop&quot;,&quot;category&quot;))%&gt;%
+  mutate(keyword=as.factor(keyword))
+
+
+
+pgt&lt;-ggplot(iot,aes(date,hits, color=keyword))+
+  geom_line(size=.1)+
+  labs(title=&quot;Google trends Scores&quot;, subtitle=&quot;Keywords: Suicidio, Tristeza. Aguascalientes&quot; ,x=&quot;Fecha&quot;, y=&quot;score&quot;)+
+  theme_light()+
+  scale_colour_manual(values=c(suicidio=&quot;red&quot;,tristeza=&quot;deepskyblue3&quot;))+   theme(legend.position=c(.9,.8))
+
+
+
+ggplotly(pgt)%&gt;%
+  layout(legend = list( x = 0.8, y = .9))</code></pre>
 <div id="serie-5-anos-smooth-filter." class="section level4">
 <h4>Serie 5 años smooth filter.</h4>
-</div>
-<div id="analisis-replicable-transparente-colaboracion-github-iteracion-del-proceso-productividad." class="section level4">
-<h4>Análisis replicable, transparente + Colaboración (GitHub) + Iteración del proceso = Productividad.</h4>
+<pre class="r"><code>library(gtrendsR)
+library(plotly)
+
+stnd2&lt;- gtrends(c( &quot;suicidio&quot;, &quot;tristeza&quot;), geo = &quot;MX-AGU&quot;, time=&quot;today+5-y&quot;)
+
+
+iot2&lt;-stnd2[[&quot;interest_over_time&quot;]]
+iot2&lt;-select(iot2,-c(&quot;geo&quot;,&quot;gprop&quot;,&quot;category&quot;))%&gt;%
+  mutate(keyword=as.factor(keyword))
+
+events = data.frame(date_envents = as.POSIXct(c(&quot;2014-11-02&quot;, &quot;2015-11-27&quot;, &quot;2016-12-11&quot;), tz = &quot;UTC&quot;, format = &quot;%Y-%m-%d&quot;))
+
+pgt&lt;-ggplot(iot2,aes(date,hits, color=keyword))+
+  geom_line(size=.1)+
+  labs(title=&quot;Google trends Scores&quot;, subtitle=&quot;Keywords: Suicidio, Tristeza. Aguascalientes&quot; ,x=&quot;Fecha&quot;, y=&quot;score&quot;)+
+  geom_smooth(method = &quot;loess&quot;,size=.5, se=FALSE)+
+  theme_light()+
+  scale_colour_manual(values=c(suicidio=&quot;red&quot;,tristeza=&quot;deepskyblue3&quot;))+ 
+  theme(legend.position=c(.9,.8))
+
+  
+ggplotly(pgt)%&gt;%
+  layout(legend = list( x = 0.8, y = .9))</code></pre>
+<hr />
+<p><strong>GitHub</strong> Page: <a href="https://github.com/JoseLuisManzanaresRivera" class="uri">https://github.com/JoseLuisManzanaresRivera</a></p>
+<p><strong>Profile</strong> Page: <a href="https://joseluismanzanaresrivera.github.io/Profile/" class="uri">https://joseluismanzanaresrivera.github.io/Profile/</a></p>
+<p><strong>Blog</strong>: <a href="https://dborder.netlify.com/" class="uri">https://dborder.netlify.com/</a></p>
+<p><strong>Tweeter</strong> <span class="citation">@JLManzanareRivera</span></p>
 </div>
 </div>
