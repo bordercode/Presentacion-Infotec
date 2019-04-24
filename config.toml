@@ -55,6 +55,6 @@ googleAnalytics = "UA-123456789-1"
   containerMaxWidth = "700px"
   dateFormat = "Jan 2, 2006"
   homeText = "Análisis Exploratorio de datos en R markdown. Domino: Salud Pública."
-  footerText = "José Luis Manzanares Rivera. Aguascalientes 05.Abril.2019"
+  footerText = "José Luis Manzanares Rivera.Abril.2019"
   hideFooter = false
   math= true
