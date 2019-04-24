@@ -1,4 +1,4 @@
-baseURL = "https://spresentacion.netlify.com/"
+baseURL = "https://colaboracion-colef-infotec.netlify.com/"
 languageCode = "en-us"
 title = "Análisis Exploratorio de Datos"
 theme = "vanilla-bootstrap-hugo-theme"
