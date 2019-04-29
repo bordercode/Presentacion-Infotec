@@ -20,8 +20,8 @@ googleAnalytics = "UA-123456789-1"
 # The value of pre is the icon name
 [menu]
   [[menu.nav]]
-    name = "COLEF-INFOTEC"
-    pre = "COLEF-INFOTEC"
+    name = "Investigación"
+    pre = "Investigación"
     url = "/"
     weight = 1
   [[menu.nav]]
