@@ -5,6 +5,7 @@ date: "3 de abril de 2019"
 output: html_document
 ---
 
+
 ```{r set-global-options, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(eval = TRUE, 
                       echo = FALSE, 

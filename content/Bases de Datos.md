@@ -9,6 +9,7 @@ Se utilizan tres bases de datos principales:
 ### SINAIS.
 * http://www.dgis.salud.gob.mx/contenidos/basesdedatos/estandar_gobmx.html
 
+
 * **Registros** 7 millones.
 
 * **Periodicidad**:  Anual con 18 años de información.  1998-2015.
