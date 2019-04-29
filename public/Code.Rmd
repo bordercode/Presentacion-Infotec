@@ -430,4 +430,4 @@ ggplotly(pgt)%>%
 
 **Blog**: https://dborder.netlify.com/
 
-**Tweeter** @JLManzanareRivera
+**Tweeter** @JLManzanareR
