@@ -1,4 +1,4 @@
-baseURL = "https://investigacion-suicidio.netlify.com/"
+baseURL = "https://suicidio2019.netlify.com/"
 languageCode = "en-us"
 title = "Análisis Exploratorio de Datos"
 theme = "vanilla-bootstrap-hugo-theme"
