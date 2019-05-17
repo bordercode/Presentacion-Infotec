@@ -37,7 +37,6 @@ library(tidyverse)
 
 
 ```{r, echo=TRUE, , results='hide'}
-
 TASA15<-readRDS("TASA15.rds")%>%
 mutate(Estado=as.factor(Estado))%>%
   select(-Alta)%>%
