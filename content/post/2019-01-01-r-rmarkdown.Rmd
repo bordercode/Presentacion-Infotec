@@ -33,6 +33,7 @@ theme_set(theme_light())
 ### lm: Trend.
 
 ```{r, fig.height = 8, fig.width = 12}
+
 s15<-readRDS("sgganimate.rds")%>%
   mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%>%
   select(-region)%>%
