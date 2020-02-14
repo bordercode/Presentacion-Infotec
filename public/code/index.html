@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.62.2" />
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   
   
@@ -181,7 +181,7 @@ geom_vline(xintercept=16,linetype=&quot;dashed&quot;, size=.5)+
 annotate(&quot;text&quot;, x=&quot;Durango&quot;, y=15, label=&quot;Elevada inicdencia&quot;)+
 scale_colour_manual(values = c(&quot;deepskyblue3&quot;, &quot;deeppink3&quot;), labels = c(&quot;Hombre&quot;, &quot;Mujer&quot;))</code></pre>
 </div>
-<div id="evolucion-temporal." class="section level5">
+<div id="evolución-temporal." class="section level5">
 <h5>Evolución temporal.</h5>
 <pre class="r"><code>growth&lt;-readRDS(&quot;tasa_a.rds&quot;)%&gt;%
   mutate(fecha=replace(fecha,fecha==99,-1),
@@ -234,7 +234,7 @@ scale_colour_hue(l=45)+
   geom_hline(yintercept=1, linetype=&quot;dashed&quot;)+
   annotate(&quot;text&quot;, y=1.25, x=12, label=&quot;LQ=1 Nivel Nacional&quot;)</code></pre>
 </div>
-<div id="lq-mexico-32-a-lo-largo-del-tiempo." class="section level5">
+<div id="lq-méxico-32-a-lo-largo-del-tiempo." class="section level5">
 <h5>LQ: México 32 a lo largo del tiempo.</h5>
 <pre class="r"><code>library(viridisLite)
 LQ&lt;-read.csv(&quot;LQ98_15x.csv&quot;)%&gt;%
@@ -251,7 +251,7 @@ lq&lt;-ggplot(LQ,aes(x=Fecha,y=LQ,fill=LQ,group=1))+
   theme_void()+
   scale_fill_viridis_c()</code></pre>
 </div>
-<div id="boxplot-comportamiento-mensual-en-18-anos." class="section level5">
+<div id="boxplot-comportamiento-mensual-en-18-años." class="section level5">
 <h5>Boxplot Comportamiento Mensual en 18 años.</h5>
 <pre class="r"><code>library(tidyverse)
 
@@ -387,7 +387,7 @@ p15 &lt;- ggplot(s15, aes(casos, gt, size = Tasa,label=Estado, colour = Región)
   scale_colour_manual(values=c(&quot;red&quot;,&quot;limegreen&quot;,&quot;royalblue&quot;,&quot;yellow2&quot;)) +
   theme(legend.position = &#39;none&#39;) +
   labs(x = &#39;Suicidios (casos)&#39;, y = &#39;Google Trends Score&#39;) </code></pre>
-<div id="animacion" class="section level5">
+<div id="animación" class="section level5">
 <h5>Animación</h5>
 <pre class="r"><code>s&lt;-readRDS(&quot;sgganimate.rds&quot;)%&gt;%
   mutate(gt=as.numeric(gt),date=as.integer(date),Región=as.factor(region))%&gt;%
@@ -404,7 +404,7 @@ p &lt;- ggplot(s, aes(casos, gt, size = Tasa, colour = Región)) +
 p</code></pre>
 </div>
 </div>
-<div id="co-movimiento-temporal-terminos-asociados." class="section level3">
+<div id="co-movimiento-temporal-términos-asociados." class="section level3">
 <h3>Co-movimiento temporal Términos asociados.</h3>
 <pre class="r"><code>library(gtrendsR)
 my_theme &lt;- function() {
@@ -441,7 +441,7 @@ pgt&lt;-ggplot(iot,aes(date,hits, color=keyword))+
 
 ggplotly(pgt)%&gt;%
   layout(legend = list( x = 0.8, y = .9))</code></pre>
-<div id="serie-5-anos-smooth-filter." class="section level4">
+<div id="serie-5-años-smooth-filter." class="section level4">
 <h4>Serie 5 años smooth filter.</h4>
 <pre class="r"><code>library(gtrendsR)
 library(plotly)
@@ -468,9 +468,9 @@ ggplotly(pgt)%&gt;%
   layout(legend = list( x = 0.8, y = .9))</code></pre>
 <hr />
 <p><strong>GitHub</strong> Page: <a href="https://github.com/JoseLuisManzanaresRivera" class="uri">https://github.com/JoseLuisManzanaresRivera</a></p>
-<p><strong>Profile</strong> Page: <a href="https://joseluismanzanaresrivera.github.io/Profile/" class="uri">https://joseluismanzanaresrivera.github.io/Profile/</a></p>
+<p><strong>Profile</strong> Page: <a href="https://joseluismanzanaresrivera.github.io/profile/index.html" class="uri">https://joseluismanzanaresrivera.github.io/profile/index.html</a></p>
 <p><strong>Blog</strong>: <a href="https://dborder.netlify.com/" class="uri">https://dborder.netlify.com/</a></p>
-<p><strong>Tweeter</strong> <span class="citation">@JLManzanareR</span></p>
+<p><strong>Tweeter</strong> <span class="citation">@JLManzanaresR</span></p>
 </div>
 </div>
 

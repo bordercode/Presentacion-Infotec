@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Análisis Exploratorio de Datos</title>
@@ -6,35 +6,98 @@
     <description>Recent content in Tags on Análisis Exploratorio de Datos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Jan 2019 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 27 Jan 2019 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Aamr</title>
-      <link>/tags/aamr/</link>
-      <pubDate>Thu, 10 Jan 2019 21:13:14 -0500</pubDate>
+      <title>Mortalidad</title>
+      <link>/tags/mortalidad/</link>
+      <pubDate>Sun, 27 Jan 2019 21:13:14 -0500</pubDate>
       
-      <guid>/tags/aamr/</guid>
+      <guid>/tags/mortalidad/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Animation</title>
-      <link>/tags/animation/</link>
-      <pubDate>Thu, 10 Jan 2019 21:13:14 -0500</pubDate>
+      <title>gganimate</title>
+      <link>/tags/gganimate/</link>
+      <pubDate>Thu, 24 Jan 2019 21:13:14 -0500</pubDate>
       
-      <guid>/tags/animation/</guid>
+      <guid>/tags/gganimate/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Boxplot</title>
+      <title>R Markdown</title>
+      <link>/tags/r-markdown/</link>
+      <pubDate>Thu, 24 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regression</title>
+      <link>/tags/regression/</link>
+      <pubDate>Thu, 24 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>boxplot</title>
       <link>/tags/boxplot/</link>
       <pubDate>Sat, 19 Jan 2019 21:13:14 -0500</pubDate>
       
       <guid>/tags/boxplot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Month</title>
+      <link>/tags/month/</link>
+      <pubDate>Sat, 19 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/month/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Types</title>
+      <link>/tags/types/</link>
+      <pubDate>Sat, 19 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/types/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gis</title>
+      <link>/tags/gis/</link>
+      <pubDate>Sat, 12 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/gis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LQ</title>
+      <link>/tags/lq/</link>
+      <pubDate>Sat, 12 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/lq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ZM</title>
+      <link>/tags/zm/</link>
+      <pubDate>Sat, 12 Jan 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/zm/</guid>
       <description></description>
     </item>
     
@@ -57,20 +120,20 @@
     </item>
     
     <item>
-      <title>Gganimate</title>
-      <link>/tags/gganimate/</link>
-      <pubDate>Thu, 24 Jan 2019 21:13:14 -0500</pubDate>
+      <title>AAMR</title>
+      <link>/tags/aamr/</link>
+      <pubDate>Thu, 10 Jan 2019 21:13:14 -0500</pubDate>
       
-      <guid>/tags/gganimate/</guid>
+      <guid>/tags/aamr/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Gis</title>
-      <link>/tags/gis/</link>
-      <pubDate>Sat, 12 Jan 2019 21:13:14 -0500</pubDate>
+      <title>animation</title>
+      <link>/tags/animation/</link>
+      <pubDate>Thu, 10 Jan 2019 21:13:14 -0500</pubDate>
       
-      <guid>/tags/gis/</guid>
+      <guid>/tags/animation/</guid>
       <description></description>
     </item>
     
@@ -80,69 +143,6 @@
       <pubDate>Thu, 10 Jan 2019 21:13:14 -0500</pubDate>
       
       <guid>/tags/google-trends/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Lq</title>
-      <link>/tags/lq/</link>
-      <pubDate>Sat, 12 Jan 2019 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/lq/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Month</title>
-      <link>/tags/month/</link>
-      <pubDate>Sat, 19 Jan 2019 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/month/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mortalidad</title>
-      <link>/tags/mortalidad/</link>
-      <pubDate>Sun, 27 Jan 2019 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/mortalidad/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>/tags/r-markdown/</link>
-      <pubDate>Thu, 24 Jan 2019 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/r-markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Regression</title>
-      <link>/tags/regression/</link>
-      <pubDate>Thu, 24 Jan 2019 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Types</title>
-      <link>/tags/types/</link>
-      <pubDate>Sat, 19 Jan 2019 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/types/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Zm</title>
-      <link>/tags/zm/</link>
-      <pubDate>Sat, 12 Jan 2019 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/zm/</guid>
       <description></description>
     </item>
     

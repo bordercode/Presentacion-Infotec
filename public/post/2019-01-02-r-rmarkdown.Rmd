@@ -26,8 +26,6 @@ library(dplyr)
 ```
 
 
-
-
 ```{r,  fig.height = 8, fig.width = 12, message=FALSE, warning=FALSE}
 
 sdensity<-readRDS("density.rds")%>%

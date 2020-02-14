@@ -426,8 +426,8 @@ ggplotly(pgt)%>%
 
 **GitHub** Page: https://github.com/JoseLuisManzanaresRivera
 
-**Profile** Page:  https://joseluismanzanaresrivera.github.io/Profile/
+**Profile** Page: https://joseluismanzanaresrivera.github.io/profile/index.html
 
 **Blog**: https://dborder.netlify.com/
 
-**Tweeter** @JLManzanareR
+**Tweeter** @JLManzanaresR

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Análisis Exploratorio de Datos. on Análisis Exploratorio de Datos</title>
@@ -132,12 +132,12 @@ gt: 32</description>
       
       <guid>/bases-de-datos/</guid>
       <description>Se utilizan tres bases de datos principales:
-SINAIS.  http://www.dgis.salud.gob.mx/contenidos/basesdedatos/estandar_gobmx.html
- Registros 7 millones.
- Periodicidad: Anual con 18 años de información. 1998-2015.
- Escala geográfica CLUES. (Hospital) para todo el territorio nacional.
+SINAIS.   http://www.dgis.salud.gob.mx/contenidos/basesdedatos/estandar_gobmx.html
+  Registros 7 millones.
+  Periodicidad: Anual con 18 años de información. 1998-2015.
+  Escala geográfica CLUES. (Hospital) para todo el territorio nacional.
   Ventajas de esta base de datos:
- Cuenta con atributos detallados sobre los individuos lo que permite un alto grado de precisión para caracterizar el fenómeno (registros de mortalidad, incluido sexo, edad, causa de muerte acorde con la CIE, referencia geográfica).</description>
+  Cuenta con atributos detallados sobre los individuos lo que permite un alto grado de precisión para caracterizar el fenómeno (registros de mortalidad, incluido sexo, edad, causa de muerte acorde con la CIE, referencia geográfica).</description>
     </item>
     
     <item>

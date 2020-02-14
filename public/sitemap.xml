@@ -1,10 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/</loc>
+    <lastmod>2019-01-27T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-01-27T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/mortalidad/</loc>
+    <lastmod>2019-01-27T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-01-27T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019-01-07-r-markdown/</loc>
     <lastmod>2019-01-27T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/gganimate/</loc>
+    <lastmod>2019-01-24T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-markdown/</loc>
+    <lastmod>2019-01-24T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/regression/</loc>
+    <lastmod>2019-01-24T21:13:14-05:00</lastmod>
   </url>
   
   <url>
@@ -18,7 +53,22 @@
   </url>
   
   <url>
+    <loc>/tags/boxplot/</loc>
+    <lastmod>2019-01-19T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/month/</loc>
+    <lastmod>2019-01-19T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019-01-03-r-rmarkdown/</loc>
+    <lastmod>2019-01-19T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/types/</loc>
     <lastmod>2019-01-19T21:13:14-05:00</lastmod>
   </url>
   
@@ -28,8 +78,48 @@
   </url>
   
   <url>
+    <loc>/tags/gis/</loc>
+    <lastmod>2019-01-12T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/lq/</loc>
+    <lastmod>2019-01-12T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/zm/</loc>
+    <lastmod>2019-01-12T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/density/</loc>
+    <lastmod>2019-01-11T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019-01-02-r-rmarkdown/</loc>
     <lastmod>2019-01-11T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/distribution/</loc>
+    <lastmod>2019-01-11T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/aamr/</loc>
+    <lastmod>2019-01-10T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/animation/</loc>
+    <lastmod>2019-01-10T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/google-trends/</loc>
+    <lastmod>2019-01-10T21:13:14-05:00</lastmod>
   </url>
   
   <url>
@@ -48,116 +138,11 @@
   
   <url>
     <loc>/notaci%C3%B3n.nb/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/aamr/</loc>
-    <lastmod>2019-01-10T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/animation/</loc>
-    <lastmod>2019-01-10T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-01-27T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/boxplot/</loc>
-    <lastmod>2019-01-19T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-01-27T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/density/</loc>
-    <lastmod>2019-01-11T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/distribution/</loc>
-    <lastmod>2019-01-11T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/gganimate/</loc>
-    <lastmod>2019-01-24T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/gis/</loc>
-    <lastmod>2019-01-12T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/google-trends/</loc>
-    <lastmod>2019-01-10T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/lq/</loc>
-    <lastmod>2019-01-12T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/notaci%C3%B3n/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/month/</loc>
-    <lastmod>2019-01-19T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/mortalidad/</loc>
-    <lastmod>2019-01-27T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2019-01-24T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/regression/</loc>
-    <lastmod>2019-01-24T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-01-10T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/types/</loc>
-    <lastmod>2019-01-19T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/zm/</loc>
-    <lastmod>2019-01-12T21:13:14-05:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>
